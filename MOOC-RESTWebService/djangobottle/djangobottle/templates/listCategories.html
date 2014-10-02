@@ -1,0 +1,18 @@
+{% extends 'loggedInIndex.html' %}
+
+{% block title %} Categories {% endblock %}
+
+{% block content %}
+
+    {% if error_status %}
+
+	    <h3>Error Occurred: {{ error.msg }}</h3>
+
+    {% endif %}
+    <table>
+    {% for category in data %}
+        <tr><td><a href='{% url 'getCategory' categoryId=category.id %}'>{{ category.name }}</a> </td></tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

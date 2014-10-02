@@ -1,0 +1,18 @@
+{% extends 'loggedInIndex.html' %}
+
+{% block title %} Announcements {% endblock %}
+
+{% block content %}
+
+    {% if error_status %}
+
+	    <h3>Error Occurred: {{ error.msg }}</h3>
+
+    {% endif %}
+    <table>
+    {% for announcement in data %}
+        <tr><td><a href='{% url 'getAnnouncement' announcementId=announcement.id %}'>{{ announcement.title }}</a> </td></tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

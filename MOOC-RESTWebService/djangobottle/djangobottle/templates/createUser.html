@@ -1,0 +1,19 @@
+{% extends 'loggedOutIndex.html' %}
+
+{% block content %}
+
+    {% if error_status %}
+
+	    <h3>Error Occurred: {{ error.msg }}</h3>
+
+    {% endif %}
+
+    <form action="." method="POST">
+	    {% csrf_token %}
+	    {{ createUser_form.as_p }}
+	    <input type="submit" value="Create">
+	</form>
+
+    <img src="{{ MEDIA_URL }}img/MOOC.jpeg" width="1900" height="550"/>
+
+{% endblock %}

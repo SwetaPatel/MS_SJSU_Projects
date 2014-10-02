@@ -1,0 +1,83 @@
+{% extends 'loggedInIndex.html' %}
+
+{% block content %}
+
+    {% if error_status %}
+
+	    <h3>Error Occurred: {{ error.msg }}</h3>
+
+    {% endif %}
+
+    {% if updateCourse_status %}       <!-- Also put condition that if its updated it does not show form again-->
+
+	    <h3>{{ data.msg }}</h3><br/>
+        Course is Updated:
+    {% endif %}
+
+    <table>
+    <form action="." method="POST">
+        <input type="hidden" name="courseId" value={{ courseId }}>
+	    <tr><td>Select Category:</td> <td> <select name="category">
+            {% for k in array %}
+            <option value={{ k }}>{{ k }}</option>
+
+            {% endfor %}
+	    </select></td>
+        </tr>
+
+        <tr><td>Title</td><td><input type="text" name="title" value="{{ data.title }}"></td></tr>
+
+        <tr><td>Section</td><td><input type="text" name="section" value="{{ data.section }}"></td></tr>
+
+        <tr><td>Department</td><td><input type="text" name="dept" value="{{ data.dept }}"></td></tr>
+
+        <tr><td>Term</td><td><input type="text" name="term" value="{{ data.term }}"></td></tr>
+
+        <tr><td>Year</td><td><input type="text" name="year" value="{{ data.year }}"></td></tr>
+
+        <tr><td>Instructor</td></tr>
+        <tr><td>Name:</td><td><input type="text" name="insName" value="{{ data.insName }}"></td>
+        <td>Email:</td><td><input type="email" name="insEmail" value="{{ data.insEmail }}"></td>
+        </tr>
+
+        <tr><td>Days:</td><td><select name="days" >
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+
+        </select></td></tr>
+
+       <tr>
+            <td>Hours:</td><td><select name="hour1">
+            <option value="8.00AM">8.00AM</option>
+            <option value="10.00AM">10.00AM</option>
+            <option value="12.00PM">12.00PM</option>
+            <option value="2.00PM">2.00PM</option>
+            <option value="4.00PM">4.00PM</option>
+
+            </select> and
+
+            <select name="hour2">
+            <option value="8.00AM">8.00AM</option>
+            <option value="10.00AM">10.00AM</option>
+            <option value="12.00PM">12.00PM</option>
+            <option value="2.00PM">2.00PM</option>
+            <option value="4.00PM">4.00PM</option>
+
+            </select></td>
+
+        </tr>
+
+        <tr><td>Description</td><td><input type="text" name="Description" value="{{ data.Descriptions }}"></td></tr>
+
+        <tr><td>Attachment</td><td><input type="text" name="attachment" value="{{ data.attachment }}"></td></tr>
+
+        <tr><td>Version</td><td><input type="text" name="version" value="{{ data.version }}"></td></tr>
+
+	    <tr><td><input type="submit" value="Update Course"></td></tr>
+	</form>
+    </table>
+
+{% endblock %}

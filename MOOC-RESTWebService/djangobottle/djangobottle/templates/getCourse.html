@@ -1,0 +1,87 @@
+{% extends 'loggedInIndex.html' %}
+
+{% block content %}
+
+    {% if error_status %}
+
+	    <h3>Error Occurred: {{ error_msg }}</h3>
+
+    {% endif %}
+
+
+
+
+   <p>Title: {{ data.title }} </p>
+   <p>Section: {{ data.section }} </p>
+   <p>Department: {{ data.dept }} </p>
+   <p>Term: {{ data.term }} </p>
+   <p>Year: {{ data.year }} </p>
+   <p>Instructor Name: {% for i in data.instructor %}{{ i.name }}{% endfor %} </p>
+   <p>Instructor Email: {% for i in data.instructor %}{{ i.email}}{% endfor %} </p>
+   <p>Days: {{ data.days|join:"," }} </p>
+   <p>Hours: {{ data.hours|join:"," }} </p>
+   Click here to view Contain: <a href='{{data.attachment}}'>{{ data.title }}</a>
+
+
+
+    {% if not userEnroll_status %}
+    {% if not userCourse_status and not enroll_status%}
+        <form action="/app1/views/enrollCourse/" method="POST">
+
+            Enter your email to enroll for Course:<br/>
+            <input type="email" name="userEmail" required>
+            <input type="hidden" name="courseId" value={{ courseId }}>
+            <input type="submit" value="Enroll">
+
+        </form>
+    {% endif %}
+    {% endif %}
+
+    {% if userCourse_status %}
+        <table>
+            <tr>
+                <form action="/app1/views/updateCourse" method="GET">
+                    <td>Click here to Edit this Course:</td>
+                    <input type="hidden" name="courseId" value={{ courseId }}>
+                    <td><input type="submit" value="Edit"></td>
+                </form>
+            </tr>
+            <tr>
+                <form action="/app1/views/deleteCourse{{ courseId }}" method="DELETE">
+                    <td>Click here to DELETE this Course:</td>
+                    <td><input type="submit" value="Delete"></td>
+                </form>
+            </tr>
+            <tr>
+                 <form action="/app1/views/CreateAnnouncement{{ data.id}}" method="GET">
+                    <td>Click here to Add Announcement:</td>
+                    <td><input type="submit" value="Add"></td>
+                </form>
+            </tr>
+        </table>
+    {% endif %}
+
+    {% if userEnroll_status%}
+         <table>
+         <br/>
+         <tr><td>You are already Enrolled User:</td></tr>
+            <tr>
+                <form action="/app1/views/addDiscussion" method="GET">
+                    <td>Click here to Add Discussion:</td>
+                    <input type="hidden" name="courseId" value={{ courseId }}>
+                    <td><input type="submit" value="Add Discussion"></td>
+                </form>
+            </tr>
+            <tr>
+                 <form action="/app1/views/listAnnouncements" method="GET">
+                    <td>Click here to View Announcement:</td>
+
+                    <td><input type="submit" value="View Announcement"></td>
+                </form>
+            </tr>
+        </table>
+    {% else %}
+
+    {% endif %}
+
+{% endblock %}

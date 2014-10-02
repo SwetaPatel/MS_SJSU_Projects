@@ -1,0 +1,37 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+{% block title %} Categories {% endblock %}
+{% block js %}
+<script src="{{ MEDIA_URL }}js/prototype.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+document.observe("dom:loaded", function() {
+  Event.observe($("id_moocs"),'change', function(e){
+      teamName = e.srcElement.options[e.srcElement.selectedIndex].value;
+      console.warn(teamName);
+      window.location.href = '{% url 'login_index' %}' + teamName+'/';
+  });
+});
+</script>
+{% endblock %}
+{% block navi %}
+	<a href="{% url 'login_index' %}">Home</a>
+    <a href="{% url 'addCourse' %}">Add Course</a>
+    <a href="{% url 'listCourses' %}">List Courses</a>
+    <a href="{% url 'getUser' %}">User Profile</a>
+    {{ mooc_select }}
+    <a href="{% url "addDiscussion" %}">Discussion</a>
+    <a href="{% url 'logout' %}">Logout</a>
+    <br>
+    <br>Data is added
+
+{% endblock %}
+
+
+{% endblock %}
+
+
+

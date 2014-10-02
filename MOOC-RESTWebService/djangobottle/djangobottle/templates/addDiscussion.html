@@ -1,0 +1,29 @@
+{% extends 'loggedInIndex.html' %}
+
+{% block content %}
+
+	{% if error_status %}
+
+    	<h3>Error Occurred: {{ error.msg }}</h3>
+
+	{% endif %}
+	{{ data.course_id }}
+
+	<table border="1">
+    		<tr><th>Title</th><th>Created By</th><th>Created On</th></tr>
+
+	{% for discussion in dataDiscussion %}
+{#    	<tr><td><a href="addMessage" >{{ message.title }} </td></a><td>{{ message.created_by }}</td></tr>#}
+    	<tr><td><a href='{% url 'addMessage' discussionId=discussion.id %}'>{{ discussion.title }}</a> </td><td>{{ discussion.created_by }}</td><td>{{ discussion.created_at }}</td></tr>
+	{% endfor %}
+	</table>
+    <br><br>
+     <b> Enter Discussion Title </b>
+	<form action="." method="POST">
+    	{% csrf_token %}
+    	{{ addDiscussion_form.as_p }}
+        <input type="hidden" name="courseId" value="{{ courseId }}">
+    	<input type="submit" value="Create">
+    </form>
+
+{% endblock %}

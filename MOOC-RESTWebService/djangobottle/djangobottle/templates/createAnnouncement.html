@@ -1,0 +1,25 @@
+{% extends 'loggedInIndex.html' %}
+
+{% block content %}
+
+    {% if error_status %}
+
+	    <h3>Error Occurred: {{ error.msg }}</h3>
+
+    {% endif %}
+    {% if createAnnouncement_status %}
+
+	    Announcement is Added
+
+    {% endif %}
+
+
+    <b> Enter Announcement Details </b>
+
+    <form action="/app1/views/CreateAnnouncement{{ courseId}}" method="POST">
+	    {% csrf_token %}
+	    {{ createAnnouncement_form.as_p }}
+	    <input type="submit" value="Create">
+	</form>
+
+{% endblock %}

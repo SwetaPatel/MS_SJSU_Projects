@@ -1,0 +1,45 @@
+{
+	"title":"EventHub",
+	"heading":"EventHub",
+	"heading2part1":"Birthday",
+	"heading2part2":"Wedding",
+	"heading2part3":"Christmas",
+	"home":"Home",
+	"login":"Login",
+	"register":"Register",
+	"myevents":"MyEvents",
+	"logout":"LogOut",
+	"punchline":"Event Planning Made Simple",
+	"para1":"	EventHub is your one stop shop to plan all important events of
+				your life! We provide list of things to be taken care of before
+				each important day of your life,so that you can enjoy and cherish
+				the day with your loved ones instead of worrying about task list.
+				Click on links below to get started!!<br> Can't find what
+				your are looking for?? Let us know and we will work on improving
+				our services.",
+	"birthday":"Birthday",
+	"wedding":"Wedding",
+	"newyear":"NewYear",
+	"bdayPara":"Birthdays are fun :) Leave that worry of party planning aside and cherish it with your family and friends!",
+	"wedPara":"Make your wedding memorable with perfect event planning. It starts here.",
+	"newyearPara":"Look to us to plan your New Year and Christmas event. Welcome new year in style!",
+	"ins":"Drag your planned activities from Suggestions to My Task List",
+	"eventName":"Event Name",
+	"suggestions":"Suggestions",
+	"tasklist":"My Task List",
+	"continue":"Continue",
+	"taskName":"Task Name",
+	"cost":"Estimated Cost ($)",
+	"chart":"Select a Chart Style",
+	"pie":"Pie Chart",
+	"donut":"Donut Chart",
+	"update":"Update Chart",
+	"save":"Save it",
+	"myEvent":"My Planned Events",
+	"aboutUs":"About Us",
+	"aboutUsPara1": "EventHub is an event management portal for user to manage their important events of life.
+					 Current website spans the basic prototype of web application with limited features of allowing
+					 user to manage their planned events of Birthday, Wedding and New Year."
+	"aboutUsPara2": "Any Questions? Any Suggestions ?",
+	"aboutUsPara3": "Write to us at"
+}

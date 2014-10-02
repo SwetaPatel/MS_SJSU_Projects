@@ -1,0 +1,36 @@
+{% extends 'loggedInIndex.html' %}
+
+{% block content %}
+
+  <h3>Title:
+  {{ data.title}} <br/></h3>
+
+
+
+</b>
+<br>
+
+<table border="1">
+    	<tr><th>Title</th><th>Message</th><th>Created By</th></tr>
+
+
+	{% for message in dataMessage %}
+    	<tr><td>{{ message.title }} </td><td>{{ message.content }}</td><td>{{ message.created_by }}</td></tr>
+
+	{% endfor %}
+	</table>
+    <br><br>
+    <b> Enter Message Details </b>
+	<form action="/app1/views/addMessage{{ discussionId}}" method="POST">
+
+
+Title: <input type="textarea" name="title"><br>
+
+Message: <input type="textarea" name="content"><br>
+
+    	<input type="submit" value="Post Message">
+</form>
+
+{% endblock %}
+
+
